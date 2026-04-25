@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/state";
   import { enhance } from "$app/forms";
+  import FormInput from "./FormInput.svelte";
 
   let { form } = $props();
 
@@ -24,28 +25,16 @@
 <form method="POST" use:enhance class="w-full max-w-md space-y-4 p-4">
   <fieldset class="space-y-4">
     <!-- URL -->
-    <label class="label">
-      <span class="label-text">Job URL</span>
-      <input
-        name="url"
-        type="url"
-        class="input"
-        placeholder="https://startupjobs.com/..."
-        aria-invalid={errors.url ? "true" : undefined}
-      />
-      {#if errors.url}<span class="text-error-500">{errors.url}</span>{/if}
-    </label>
+    <FormInput id="url" name="Job URL" type="url" {errors} />
     <!-- Textarea -->
-    <label class="label">
-      <span class="label-text">Textarea</span>
+    <FormInput id="introduction" name="introduction" {errors} >
       <textarea
-        name="introduction"
-        class="textarea rounded-container"
-        rows="4"
-        aria-invalid={errors.introduction ? "true" : undefined}
+      name="introduction"
+      class="textarea rounded-container"
+      rows="4"
+      aria-invalid={errors.introduction ? "true" : undefined}
       ></textarea>
-      {#if errors.introduction}<span class="text-error-500">{errors.introduction}</span>{/if}
-    </label>
+    </FormInput>
   </fieldset>
   <fieldset class="flex justify-end">
     <!-- Button -->
