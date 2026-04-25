@@ -49,6 +49,10 @@
     </FormInput>
   </fieldset>
   <fieldset class="flex justify-end">
-    <button type="submit" class="btn preset-outlined-surface-300-700">Submit</button>
+    <button
+      type="submit"
+      class="btn preset-outlined-surface-300-700"
+      onclick={() => (message = null)}>Submit</button
+    >
   </fieldset>
 </form>
