@@ -1,3 +1,4 @@
+import * as fs from "node:fs/promises";
 import { superValidate, message } from "sveltekit-superforms";
 import { valibot } from "sveltekit-superforms/adapters";
 import { fail } from "@sveltejs/kit";
@@ -25,8 +26,22 @@ export const actions = {
       // Return { form } and things will just work.
       return fail(400, { form });
     }
+    const data = form.data;
 
-    // TODO: Do something with the validated form.data
+    // 1. mkdir ~/persistent/jobs/log/$company
+    const companyDir = `/home/perchun/persistent/jobs/log/${data.companyName}/`;
+    await fs.mkdir(companyDir, { recursive: true });
+    // 2. craft file
+    let text = `\
+# ${data.jobName}
+${data.url}
+
+${data.description}`;
+    if (data.introduction) {
+      text += `\n\n${data.introduction}`;
+    }
+    // 3. write file
+    await fs.writeFile(companyDir + data.jobName + ".txt", text + "\n");
 
     // Return the form with a status message
     return message(form, "Saved successfully!");
