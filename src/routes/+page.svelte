@@ -24,20 +24,27 @@
 
 <form method="POST" use:enhance class="w-full max-w-md space-y-4 p-4">
   <fieldset class="space-y-4">
-    <!-- URL -->
+    <FormInput id="jobName" name="Job name" {errors} />
     <FormInput id="url" name="Job URL" type="url" {errors} />
-    <!-- Textarea -->
-    <FormInput id="introduction" name="introduction" {errors} >
+    <FormInput id="companyName" name="Company name" {errors} />
+    <FormInput id="description" name="Description" {errors}>
       <textarea
-      name="introduction"
-      class="textarea rounded-container"
-      rows="4"
-      aria-invalid={errors.introduction ? "true" : undefined}
+        name="description"
+        class="textarea"
+        rows="4"
+        aria-invalid={errors.introduction ? "true" : undefined}
+      ></textarea>
+    </FormInput>
+    <FormInput id="introduction" name="Introduction" {errors}>
+      <textarea
+        name="introduction"
+        class="textarea"
+        rows="2"
+        aria-invalid={errors.introduction ? "true" : undefined}
       ></textarea>
     </FormInput>
   </fieldset>
   <fieldset class="flex justify-end">
-    <!-- Button -->
     <button type="submit" class="btn preset-outlined-surface-300-700">Submit</button>
   </fieldset>
 </form>

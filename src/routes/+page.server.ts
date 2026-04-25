@@ -4,7 +4,10 @@ import { fail } from "@sveltejs/kit";
 import * as v from "valibot";
 
 const schema = v.object({
+  jobName: v.string(),
   url: v.pipe(v.string(), v.url()),
+  companyName: v.string(),
+  description: v.string(),
   introduction: v.optional(v.string()),
 });
 
