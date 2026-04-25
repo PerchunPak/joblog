@@ -17,7 +17,11 @@
 </script>
 
 {#if message}
-  <div class="status" class:error={page.status >= 400} class:success={page.status == 200}>
+  <div
+    class="min-w-sm card p-4 text-center"
+    class:preset-tonal-success={page.status == 200}
+    class:preset-tonal-error={page.status >= 400}
+  >
     {message}
   </div>
 {/if}
