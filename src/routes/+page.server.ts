@@ -43,7 +43,8 @@ ${data.description}`;
       text += `\n\n${data.introduction}`;
     }
     // 3. write file
-    await fs.writeFile(companyDir + data.jobName + ".txt", text + "\n");
+    const fileName = data.jobName.replaceAll("/", "_") + ".txt";
+    await fs.writeFile(companyDir + fileName, text + "\n");
 
     // Return the form with a status message
     return message(form, "Saved successfully!");
