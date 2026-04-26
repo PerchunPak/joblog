@@ -18,7 +18,6 @@ export const load = async () => {
 };
 
 export const actions = {
-  // @ts-expect-error request is any
   default: async ({ request }) => {
     const form = await superValidate(request, valibot(schema));
 

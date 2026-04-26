@@ -1,11 +1,13 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
   import type { ValidationErrors } from "sveltekit-superforms";
 
   interface Props {
     id: string;
     name: string;
     type?: string;
-    errors: ValidationErrors;
+    errors: ValidationErrors<any>;
+    children?: Snippet;
   }
 
   let { id, name, type = "text", errors, children, ...props }: Props = $props();
