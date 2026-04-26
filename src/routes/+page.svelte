@@ -26,7 +26,7 @@
   </div>
 {/if}
 
-<form method="POST" use:enhance class="w-full max-w-md space-y-4 p-4">
+<form method="POST" use:enhance class="w-full max-w-lg space-y-4 p-4">
   <fieldset class="space-y-4">
     <FormInput id="jobName" name="Job name" {errors} />
     <FormInput id="url" name="Job URL" type="url" {errors} />
@@ -34,16 +34,16 @@
     <FormInput id="description" name="Description" {errors}>
       <textarea
         name="description"
-        class="textarea"
-        rows="4"
+        class="textarea text-xs"
+        rows="10"
         aria-invalid={errors.introduction ? "true" : undefined}
       ></textarea>
     </FormInput>
     <FormInput id="introduction" name="Introduction" {errors}>
       <textarea
         name="introduction"
-        class="textarea"
-        rows="2"
+        class="textarea text-xs"
+        rows="5"
         aria-invalid={errors.introduction ? "true" : undefined}
       ></textarea>
     </FormInput>

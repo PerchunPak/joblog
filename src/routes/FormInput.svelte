@@ -21,7 +21,7 @@
     <input
       name={id}
       {type}
-      class="input"
+      class="input text-sm"
       aria-invalid={errors[id] ? "true" : undefined}
       {...props}
     />
