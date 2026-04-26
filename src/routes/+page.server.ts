@@ -31,9 +31,12 @@ export const actions = {
     const companyDir = `/home/perchun/persistent/jobs/log/${data.companyName}/`;
     await fs.mkdir(companyDir, { recursive: true });
     // 2. craft file
+    const todayDate = new Date().toISOString().split("T")[0];
     let text = `\
-# ${data.jobName}
+${todayDate}
 ${data.url}
+
+# ${data.jobName}
 
 ${data.description}`;
     if (data.introduction) {
